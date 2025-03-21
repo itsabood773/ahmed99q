@@ -1,3 +1,5 @@
+rint("start")
+import requests
 import threading
 
 def make_request(url):
