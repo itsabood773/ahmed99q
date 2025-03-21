@@ -1,4 +1,4 @@
-rint("start")
+print("start")
 import requests
 import threading
 
