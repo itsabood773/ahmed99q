@@ -28,7 +28,8 @@ def main():
            api= "psFElo5EvBfh03ibluoPX87MVQXne3GO"
         else: 
            api ="adr2BVGD9HCU0pGXmYi4sT65LCG0UWDh"
-        url = f"https://api.webscrapingapi.com/v2?api_key={api}&url=https%3A%2F%2Fwww.profitablecpmrate.com%2Fwmbx23g2%3Fkey%3Db7a4029a74caece5dba8ed3619263305&render_js=1"
+           ad ="https://www.effectiveratecpm.com/ca83bzpx98?key=dee9c6f3171b614287718132222041ad"
+        url = f"https://api.webscrapingapi.com/v2?api_key={api}&url={ad}&render_js=1"
     
        # proxy = {"http":f"http://{pro}"}
         thread = threading.Thread(target=make_request, args=(url,))
