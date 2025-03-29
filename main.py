@@ -17,7 +17,7 @@ async def fetch_url(session, url):
 async def main():
     """Creates an aiohttp session and fetches multiple URLs concurrently."""
     urls = list()
-    apis =["0rdyuYtMWbeHc3WCVzccCopTLE9Fy2al",
+    apis =["Suwu1QiiWkW2vmL9RMZROhDzx4Qbd6xq",
         "pXfYDt9Z3qeAKZ1xD1DsUEaHa8v7G2zS"]
     ad ="https://www.effectiveratecpm.com/ca83bzpx98?key=dee9c6f3171b614287718132222041ad"
 
