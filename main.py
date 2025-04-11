@@ -17,10 +17,10 @@ async def fetch_url(session, url):
 async def main():
     """Creates an aiohttp session and fetches multiple URLs concurrently."""
     urls = list()
-    apis =["JB9YQjezhUpARGijwfwOSYmHPVamvqph",
-        "lPQfMVz6wYx9nV1RKoF3k41v6zEkLKp5"]
-    ad ="https://www.effectiveratecpm.com/ca83bzpx98?key=dee9c6f3171b614287718132222041ad"
-
+    apis =["BH6uvqJ31te2LyybPNijyvWU4T5tGYrg",
+        "QZ93P8muypTCeIvpEjWfZoWimZMw3GDY"]
+    #ad ="https://www.effectiveratecpm.com/ca83bzpx98?key=dee9c6f3171b614287718132222041ad"
+    ad = "https://www.profitableratecpm.com/zhzbtigdvk?key=bfdf77a1bedb6a88e866ad888aa3896b"
     for api in apis:
         for _ in range(randint (3,5)):
             url = f"https://api.webscrapingapi.com/v2?api_key={api}&url={ad}&render_js=1"
