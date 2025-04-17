@@ -1,45 +1,44 @@
 print("start")
-import asyncio
-import aiohttp  # Requires installing: pip install aiohttp
+import requests
+import threading
 from random import randint
-
-async def fetch_url(session, url):
-    """Asynchronously fetches the content of a URL using aiohttp."""
+def make_request(url):
+    """Makes a GET request to the given URL and prints the response status code."""
     try:
-        async with session.get(url) as response:
-            response.raise_for_status()  # Raise HTTPError for bad responses (4xx or 5xx)
-            return await response.text()  # Or response.read() for binary data
-    except aiohttp.ClientError as e:  # Catch connection errors and HTTP errors
-        print(f"Error fetching {url}: {e}")
-        return None
+        
+        response = requests.get(url)
+        print("proxy" in response.text, "proxy")
+        
+    except requests.exceptions.RequestException as e:
+        print(f"Error for URL {url}: {e}")
+
+def main():
+    """Creates and starts 10 threads to make requests to different URLs."""
+    #urls = [
+       #f"https://api.webscrapingapi.com/v1?api_key=d6jZT9oiMvCTSYIfSz51g81Fm0rnHJdh&url=https%3A%2F%2Fwww.effectiveratecpm.com%2Fwmbx23g2%3Fkey%3Db7a4029a74caece5dba8ed3619263305&render_js=1&wait_until=networkidle0&wait_for={randint(5000, 8000)}"
+   # for _ in range(randint(10, 20))]
+    #p =["104.207.54.151:3128","45.202.77.233:3128","154.213.198.0:3128"]#"156.228.108.196:3128","156.228.99.115:3128","156.228.91.151:3128"]
+    
+    
+    threads = []
+    
+    for i in range(10):
+        ad = "https://www.profitableratecpm.com/f3ttrgmm?key=c48e66368d4932733432e517cf035cb2"
+        api ="Cl0R83O9IBSsYTec0IGQPLevqbeIr9QY"
+        url = f"https://api.webscrapingapi.com/v1?api_key={api}&url={ad}=1&wait_until=networkidle0&device=mobile&wait_for={randint (6000,10000)}&country=fr"
+
+       # proxy = {"http":f"http://{pro}"}
+        thread = threading.Thread(target=make_request, args=(url,))
+        threads.append(thread)
+        thread.start()  # Start the thread immediately
+
+    # Wait for all threads to complete
+    for thread in threads:
+        thread.join()
+
+    print("All requests completed.")
 
 
-async def main():
-    """Creates an aiohttp session and fetches multiple URLs concurrently."""
-    urls = list()
-    apis =["zXAzKYn77I0Oi3MEAoZ4tuqHkCl8OjzF",
-        "e5ELaPWnVMDbqjRLQz5hEMBfB5cRqLxr","f2sGrgZ1BUfKiJ0GHe1rAyZYj1iScjf8"]
-    #ad ="https://www.effectiveratecpm.com/ca83bzpx98?key=dee9c6f3171b614287718132222041ad"
-    #ad = "https://www.profitableratecpm.com/zhzbtigdvk?key=bfdf77a1bedb6a88e866ad888aa3896b"
-    ad ="https://www.profitableratecpm.com/wmbx23g2?key=b7a4029a74caece5dba8ed3619263305"
-    for api in apis:
-        for _ in range(randint (3,5)):
-            url = f"https://api.webscrapingapi.com/v2?api_key={api}&url={ad}&country=au&render_js=1"
-            urls.append(url)
-
-    async with aiohttp.ClientSession() as session:
-        tasks = [fetch_url(session, url) for url in urls]
-        results = await asyncio.gather(*tasks)  # Run all tasks concurrently
-
-    # Process the results (optional)
-    for i, result in enumerate(results):
-        if result:
-            print("proxy" in result)
-        else:
-            print(f"Failed to fetch {urls[i]}")
-
-
-if __name__ == "__main__":
-   for i in range (1000):
-     print(i)
-     asyncio.run(main())
+for _ in range(3000):
+        print(_)       
+        main() 
