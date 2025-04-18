@@ -26,7 +26,7 @@ def main():
         for i in range(10):
             #ad = "https://www.profitableratecpm.com/f3ttrgmm?key=c48e66368d4932733432e517cf035cb2"
             ad ="https://www.profitableratecpm.com/zhzbtigdvk?key=bfdf77a1bedb6a88e866ad888aa3896b"
-            url = f"https://api.webscrapingapi.com/v1?api_key={api}&url={ad}=1&wait_until=networkidle0&device=mobile&wait_for={randint (6000,10000)}&country=au"
+            url = f"https://api.webscrapingapi.com/v1?api_key={api}&url={ad}=1&wait_until=networkidle0&device=mobile&wait_for={randint (6000,10000)}"#&country=au"
     
            # proxy = {"http":f"http://{pro}"}
             thread = threading.Thread(target=make_request, args=(url,))
